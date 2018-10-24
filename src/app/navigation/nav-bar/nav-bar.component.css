@@ -1,0 +1,31 @@
+.menu {
+  outline: none;
+  text-transform: uppercase;
+  width:100%;
+	padding:10px 18px;
+	box-shadow:0px 1px 1px rgba(0,0,0,0.15);
+	border-radius:3px;
+  background:#007ad9;
+  margin-bottom: 30px;
+}
+.menu ul {
+  margin: 20px 50px 20px 50px;
+	display:inline-block;
+}
+
+.menu li {
+	margin:0px 50px 0px 0px;
+	float:left;
+	font-size:14px;
+}
+
+.menu a {
+	text-shadow:0px 1px 0px rgba(0,0,0,0.5);
+	color:#ffffff;
+	transition:color linear 0.15s;
+}
+
+.menu a:hover{
+	text-decoration:none;
+	color: #116fbf;
+}

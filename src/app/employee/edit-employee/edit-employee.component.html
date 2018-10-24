@@ -1,0 +1,68 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="ui-g-12 ui-fluid">
+      <div class="ui-g-12">
+        <h3>Editar funcionario:</h3>
+      </div>
+
+      <div class="ui-g-12 ui-md-8">
+        <label for="name">Nome:</label>
+        <input id="name" formControlName="name" name="name" type="text" pInputText>
+        <div class="ui-g-12">
+          <p-message severity="error" text="Nome é obrigatório" *ngIf="!editForm.controls['name'].valid&&editForm.controls['name'].dirty"></p-message>
+        </div>
+      </div>
+
+      <div class="ui-g-12 ui-md-2">
+        <label for="cpf">CPF:</label>
+        <p-inputMask id="cpf" formControlName="cpf" name="cpf" mask="999.999.999-99" [(ngModel)]="input[0].cpf"></p-inputMask>
+        <div class="ui-g-12">
+          <p-message severity="error" text="CPF é obrigatório" *ngIf="!editForm.controls['cpf'].valid&&editForm.controls['cpf'].dirty"></p-message>
+        </div>
+      </div>
+
+      <div class="ui-g-12 ui-md-10">
+        <label for="street">Logradouro: </label>
+        <input id="street" formControlName="street" name="street" type="text" pInputText >
+        <div class="ui-g-12">
+          <p-message severity="error" text="Logradouro é obrigatório" *ngIf="!editForm.controls['street'].valid&&editForm.controls['street'].dirty"></p-message>
+        </div>
+      </div>
+
+      <div class="ui-g-12 ui-md-2">
+        <label for="number">Numero:</label>
+        <input id="number" formControlName="number" name="number" type="number" [(ngModel)]="input[0].number" pInputText>
+        <div class="ui-g-12">
+          <p-message severity="error" text="Numero é obrigatório" *ngIf="!editForm.controls['number'].valid&&editForm.controls['number'].dirty"></p-message>
+        </div>
+      </div>
+
+      <div class="ui-g-12 ui-md-4">
+        <label for="district">Bairro:</label>
+        <input id="district" formControlName="district" name="district" type="text" pInputText>
+        <div class="ui-g-12">
+          <p-message severity="error" text="Bairro é obrigatório" *ngIf="!editForm.controls['district'].valid&&editForm.controls['district'].dirty"></p-message>
+        </div>
+      </div>
+
+      <div class="ui-g-12 ui-md-2">
+        <label for="cep">CEP:</label>
+        <p-inputMask id="cep" formControlName="cep" name="cep" mask="99.999-999" [(ngModel)]="input[0].cep"></p-inputMask>
+        <div class="ui-g-12">
+          <p-message severity="error" text="CEP é obrigatório" *ngIf="!editForm.controls['cep'].valid&&editForm.controls['cep'].dirty"></p-message>
+        </div>
+      </div>
+
+      <div class="ui-g-12 ui-md-4">
+        <label for="city">Cidade:</label>
+        <input id="city" formControlName="city" name="city" type="text" pInputText>
+        <div class="ui-g-12">
+          <p-message severity="error" text="Cidade é obrigatório" *ngIf="!editForm.controls['city'].valid&&editForm.controls['city'].dirty"></p-message>
+        </div>
+      </div>
+
+      <div class="ui-g-12">
+        <p-button type label="Salvar" [disabled]="!editForm.valid" styleClass="ui-button-info"></p-button>
+      </div>
+    </div>
+  </form>
+

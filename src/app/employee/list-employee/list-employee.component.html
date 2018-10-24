@@ -1,0 +1,60 @@
+<p-toast position="center" key="c" (onClose)="onReject()" [modal]="true" [baseZIndex]="5000">
+  <ng-template let-message pTemplate="message">
+      <div style="text-align: center">
+          <i class="pi pi-exclamation-triangle" style="font-size: 3em"></i>
+          <h3>{{message.summary}}</h3>
+          <p>{{message.detail}}</p>
+      </div>
+      <div class="ui-g ui-fluid">
+          <div class="ui-g-6">
+              <button type="button" pButton (click)="deleteEmployee()" label="Sim" class="ui-button-success"></button>
+          </div>
+          <div class="ui-g-6">
+              <button type="button" pButton (click)="onReject()" label="Não" class="ui-button-secondary"></button>
+          </div>
+      </div>
+  </ng-template>
+</p-toast>
+
+<div class="ui-g-12">
+    <p-table [value]="employees" [paginator]="true" [rows]="5">
+        <ng-template pTemplate="caption">
+            Funcionários
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Logradouro</th>
+                <th>Numero</th>
+                <th>Bairro</th>
+                <th>Cidade</th>
+                <th>CEP</th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-e>
+            <tr>
+                <td>{{e.id}}</td>
+                <td>{{e.name}}</td>
+                <td>{{e.cpf}}</td>
+                <td>{{e.address.street}}</td>
+                <td>{{e.address.number}}</td>
+                <td>{{e.address.district}}</td>
+                <td>{{e.address.city}}</td>
+                <td>{{e.address.zipCode}}</td>
+                <td class="options">
+                  <button pButton type="button" icon="pi pi-fw pi-pencil" (click)="editEmployee(e)" iconPos="left"></button>
+                  <button pButton type="button" icon="pi pi-fw pi-trash" (click)="showConfirm(e)" iconPos="center"></button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+          <div style="text-align:left">
+              <button type="button" pButton icon="fa fa-plus" (click)="addEmployee()" label="Add"></button>
+          </div>
+      </ng-template>
+    </p-table>
+  </div>
+
